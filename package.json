@@ -1,0 +1,40 @@
+{
+	"name": "@agility/content-management",
+	"version": "0.1.0",
+	"description": "JavaScript library for the Agility Content Management API (node)",
+	"main": "dist/agility-content-management.node.js",
+	"scripts": {
+		"test": "nyc --reporter=html --reporter=text mocha --require @babel/register --recursive ./test/",
+		"generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
+		"build": "webpack --config webpack.config -p"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/agility/agility-content-management-js-sdk.git"
+	},
+	"author": "Joel Varty",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/agility/agility-content-management-js-sdk/issues"
+	},
+	"homepage": "https://github.com/agility/agility-content-management-js-sdk#readme",
+	"devDependencies": {
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.3.4",
+		"@babel/node": "^7.2.2",
+		"@babel/preset-env": "^7.3.4",
+		"@babel/register": "^7.0.0",
+		"agility-jsdoc-template": "1.0.3",
+		"babel-loader": "^8.0.5",
+		"chai": "^4.2.0",
+		"jsdoc": "^3.5.5",
+		"mocha": "^6.0.2",
+		"nyc": "^13.3.0",
+		"webpack": "^4.29.6",
+		"webpack-cli": "^3.2.3"
+	},
+	"dependencies": {
+		"axios": "^0.18.1",
+		"axios-cache-adapter": "^2.4.1"
+	}
+}
