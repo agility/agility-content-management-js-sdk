@@ -18,7 +18,7 @@ function createApiClientCanada() {
     var api = agility.getApi({
 		location: "Canada",
 		websiteName: websiteName,
-		securityKey: securityKey
+		securityKey: securityKey,
     });
     return api;
 }
@@ -28,7 +28,8 @@ function createApiClientDev() {
     var api = agility.getApi({
 		websiteName: websiteName,
 		securityKey: securityKey,
-		apiKey: "https://dev-contentserver.publishwithagility.com"
+		baseURL: "http://contentserver.dev.edentity.ca", //HACK FOR LOCAL "https://dev-contentserver.publishwithagility.com",
+		debug: true
     });
     return api;
 }

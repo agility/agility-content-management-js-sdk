@@ -49,11 +49,13 @@ import { isHttps } from './utils'
  * @param {string} config.guid - [not yet in use] The guid that represents your instance.
  * @param {string} config.apiKey - [not yet in use] The secret token that represents your application.
  *
- * @param {string} [config.baseUrl] - Optionally override the default Management API Base Url.
+ * @param {string} [config.baseURL] - Optionally override the default Management API Base Url.
+ *
+ * @param {boolean} [config.debug] - Optionally turn on debug mode
  * @return {AgilityManagement.Client}
  * @example
  *
- * import agilityMgmt from '@agility/content-Management'
+ * import agilityMgmt from '@agility/content-management'
  *
  * const mgmtApi = agilityMgmt.getApi({
  *   location: 'USA',
@@ -71,20 +73,17 @@ function getApi(config) {
 
 function validateConfigParams(configParams) {
 
-
 	//ensure a guid or a website name
 	if ((!configParams.guid || configParams.guid.length == 0)
 		&& (!configParams.websiteName || configParams.websiteName.length == 0)) {
 		throw new TypeError('You must provide either guid or a websiteName.');
 	}
 
-
 	if (!configParams.guid || configParams.guid.length == 0) {
 		//they are using security key...
 		if (!configParams.securityKey || configParams.securityKey.length == 0) {
 			throw new TypeError('You must provide a securityKey.');
 		}
-
 	} else {
 		//they are using guid/apikey
 		if (!configParams.apiKey || configParams.apiKey.length == 0) {
@@ -92,9 +91,9 @@ function validateConfigParams(configParams) {
 		}
 	}
 
-	//check baseUrl is https
-	if (configParams.baseUrl && !isHttps(configParams.baseUrl)) {
-		throw new TypeError(`When specifying a baseUrl (${configParams.baseUrl}), it must be over HTTPs.`);
+	//check baseURL is https
+	if (configParams.baseURL && !isHttps(configParams.baseURL)) {
+		throw new TypeError(`When specifying a baseURL (${configParams.baseURL}), it must be over HTTPs.`);
 	}
 
 }

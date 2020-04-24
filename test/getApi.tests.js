@@ -15,7 +15,8 @@ describe('getApi:', function() {
             websiteName: 'my website',
             securityKey: 'some-security-key'
         });
-        assert.strictEqual(typeof(api), "object");
+        assert.strictEqual(typeof(api), "object", "The api object should be an object type.");
+        assert.isTrue(api.config != null, "The api.config should not be null" );
         done();
     })
 

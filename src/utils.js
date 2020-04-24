@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 function logError(consoleMessage) {
     console.error('\x1b[41m%s\x1b[0m', consoleMessage);
 }
@@ -6,66 +8,59 @@ function logDebug(consoleMessage) {
     console.log('\x1b[33m%s\x1b[0m', consoleMessage);
 }
 
-function buildRequestUrlPath(config, languageCode) {
-    let apiFetchOrPreview = null;
 
-    if(config.isPreview === true || config.isPreview === 'true') {
-        apiFetchOrPreview  = 'preview';
-    } else {
-        apiFetchOrPreview = 'fetch';
-    }
+function buildAPIUrl({ methodName, args}) {
 
-    let urlPath = `${config.baseUrl}/${apiFetchOrPreview}/${languageCode}`;
-    return urlPath;
+	let url = `${methodName}?`;
+
+	for (const key in args) {
+		if (args.hasOwnProperty(key)) {
+
+			const val = args[key];
+			url += `${key}=${val}&`
+		}
+	}
+
+	url = url.substring(0, url.length -1);
+
+	return url;
 }
 
-function buildPathUrl(contentType, referenceName, skip, take, sort, direction, filters, filtersLogicOperator, contentLinkDepth) {
-    let url = `/${contentType}/${referenceName}?contentLinkDepth=${contentLinkDepth}&`;
-    filtersLogicOperator = filtersLogicOperator ? ` ${filtersLogicOperator} ` : ' AND ';
 
-    if (sort) {
-        url += `sort=${sort}&`;
-        if (direction) {
-            url += `direction=${direction}&`;
-        }
-    }
+function buildAuthHeader({config, methodName, args}) {
 
-    if (skip) {
-        url += `skip=${skip}&`;
-    }
+	let websiteName = config.websiteName;
+	let securityKey = config.securityKey;
 
-    if (take) {
-        url += `take=${take}&`;
-    }
+	//build the sorted params list for the hash
+	let params = []
 
-    if (filters && filters.length > 0) {
-        url += 'filter='
-        for (let i = 0; i < filters.length; i++) {
-            let filter = filters[i];
-            url += `${filter.property}[${filter.operator}]${filter.value}` + (i < filters.length - 1 ? filtersLogicOperator : '');
-        }
-        url += '&';
-    }
-    return url;
-}
+	for (const key in args) {
+		if (args.hasOwnProperty(key)) {
+			const val = args[key];
+			params.push(val)
+		}
+	}
 
-function buildAuthHeader(config) {
-    let defaultAuthHeaders = {
-        'APIKey': config.apiKey
+	params = params.sort((a, b) => {
+		return a > b;
+	});
+
+	const str = `${websiteName}.${securityKey}.${methodName}.${params.join(".")}.${websiteName}`;
+	const hash = crypto.createHash("sha1").update(str).digest('hex');
+
+    let headers = {
+		'Content-Type': 'application/x-www-form-urlencoded',
+		'agility-website': config.websiteName,
+		'agility-hash': hash
     };
 
-    if(config.requiresGuidInHeaders) {
-        defaultAuthHeaders.Guid = config.guid;
-    }
-
-    return {
-        ...defaultAuthHeaders,
-        ...config.headers
-    }
-
+    return headers;
 }
 
 function isHttps(url) {
+	//HACK
+	return true;
     if(!url.toLowerCase().startsWith('https://')) {
         return false;
     }
@@ -74,9 +69,8 @@ function isHttps(url) {
 
 
 export {
-    buildPathUrl,
+    buildAPIUrl,
     buildAuthHeader,
-    buildRequestUrlPath,
     isHttps,
     logError,
     logDebug
