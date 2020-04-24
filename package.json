@@ -5,6 +5,7 @@
 	"main": "dist/agility-content-management.node.js",
 	"scripts": {
 		"test": "nyc --reporter=html --reporter=text mocha --require @babel/register --recursive ./test/",
+		"test1": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test/03-mediaOps.tests.js",
 		"generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
 		"build": "webpack --config webpack.config -p"
 	},
@@ -35,6 +36,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.18.1",
-		"axios-cache-adapter": "^2.4.1"
+		"axios-cache-adapter": "^2.4.1",
+		"form-data": "^3.0.0"
 	}
 }

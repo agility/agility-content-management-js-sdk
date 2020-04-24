@@ -1,0 +1,16 @@
+
+Pages
+
+GetModule
+AddModuleToPage
+RemoveModuleFromPage
+SavePage
+
+
+Media
+
+AddImageToGallery
+GetGalleryByID
+GetGalleryFromGrouping
+GetGalleryByName
+SaveGallery

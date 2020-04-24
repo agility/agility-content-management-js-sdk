@@ -1,4 +1,5 @@
-const crypto = require('crypto');
+import crypto from 'crypto'
+
 
 function logError(consoleMessage) {
     console.error('\x1b[41m%s\x1b[0m', consoleMessage);
@@ -50,7 +51,6 @@ function buildAuthHeader({config, methodName, args}) {
 	const hash = crypto.createHash("sha1").update(str).digest('hex');
 
     let headers = {
-		'Content-Type': 'application/x-www-form-urlencoded',
 		'agility-website': config.websiteName,
 		'agility-hash': hash
     };

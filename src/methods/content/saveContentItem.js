@@ -1,10 +1,11 @@
+import FormData from 'form-data'
 import { buildAPIUrl, buildAuthHeader } from '../../utils'
 
 /**
- * Gets the details of a content item by their Content ID.
+ * Saves a content item.
  * @memberof AgilityManagement.Client.Content
  * @param {Object} requestParams - The paramaters for the API request.
- * @param {AgilityFetch.Types.ContentItem} requestParams.contentItem - The contentItem to be saved.
+ * @param {AgilityManagement.Types.ContentItem} requestParams.contentItem - The contentItem to be saved.
  * @param {string} requestParams.languageCode - The language code of the content you want to retrieve.
  * @param {string} requestParams.referenceName - The referenceName of the list or single item that you are updating.
 
@@ -26,17 +27,21 @@ function saveContentItem(requestParams) {
 
 	const methodName = "SaveContentItem";
 
-	let encodedContentItem = JSON.stringify(requestParams.contentItem.fields)
-	let attachmentsEncoded = ""
+	const {fields, attachments} = pulloutAttachments(requestParams.contentItem);
 
-	const data = `contentItem=${encodeURIComponent(encodedContentItem)}&attachments=${encodeURIComponent(attachmentsEncoded)}`
+	let encodedContentItem = JSON.stringify(fields)
+	let attachmentsEncoded = JSON.stringify(attachments);
+
+	const form = new FormData()
+	form.append("contentItem", encodedContentItem);
+	form.append("attachments", attachmentsEncoded);
 
     const req = {
         url: buildAPIUrl({methodName, args}),
         method: 'post',
         baseURL: this.config.baseURL,
-        headers: buildAuthHeader({config:this.config, methodName, args}),
-        data: data
+        headers: { ... buildAuthHeader({config:this.config, methodName, args}), ... form.getHeaders() },
+        data: form
     };
 
     return this.makeRequest(req);
@@ -45,9 +50,7 @@ function saveContentItem(requestParams) {
 function validateRequestParams(requestParams) {
     if(!requestParams.languageCode) {
 		throw new TypeError('You must include a languageCode in your request params.')
-	} else if(!requestParams.languageCode) {
-			throw new TypeError('You must include a languageCode in your request params.')
-    } else if(!requestParams.contentItem) {
+	} else if(!requestParams.contentItem) {
 		throw new TypeError('You must include a contentItem object in your request params.');
 	} else if(!requestParams.contentItem.contentID) {
 		throw new TypeError('You must include a contentItem.contentID number in your request params.');
@@ -55,5 +58,39 @@ function validateRequestParams(requestParams) {
         return;
     }
 }
+
+function pulloutAttachments(contentItem)
+{
+
+	let fields = {};
+	let attachments= [];
+
+	for (const fieldName in contentItem.fields) {
+		if (contentItem.fields.hasOwnProperty(fieldName)) {
+			const value = contentItem.fields[fieldName];
+
+			if (value.mediaID !== undefined || value.clearAttachment !== undefined) {
+
+				//this is an attachment...
+				attachments.push({
+					managerID: fieldName,
+					AssetMediaID: value.mediaID,
+					clearAttachment: value.clearAttachment,
+					label: value.label
+				});
+
+			} else {
+				//regular field...
+				fields[fieldName] = value;
+
+			}
+
+		}
+	}
+
+	return {fields, attachments };
+
+}
+
 
 export default saveContentItem;

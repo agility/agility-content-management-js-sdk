@@ -2,18 +2,16 @@ import axios from 'axios'
 import { logError, logDebug } from './utils'
 import apiLocation from './const/APILocation'
 
-import saveContentItem from './methods/content/saveContentItem'
+import saveContentItem 	from './methods/content/saveContentItem'
+import requestApproval 	from './methods/content/requestApproval'
+import approveContent 	from './methods/content/approveContent'
+import declineContent 	from './methods/content/declineContent'
+import deleteContent 	from './methods/content/deleteContent'
+import publishContent 	from './methods/content/publishContent'
+import unpublishContent from './methods/content/unpublishContent'
 
-// import getSitemapNested from './methods/getSitemapNested'
-// import getContentItem from './methods/getContentItem'
-// import getContentList from './methods/getContentList'
-// import getPage from './methods/getPage'
-// import getGallery from './methods/getGallery'
-// import getSyncContent from './methods/getSyncContent'
-// import getSyncPages from './methods/getSyncPages'
-// import FilterOperators from './types/FilterOperator'
-// import FilterLogicOperators from './types/FilterLogicOperator'
-//import SortDirections from './types/SortDirection'
+import uploadMedia 		from './methods/media/uploadMedia'
+import getMediaID 		from './methods/media/getMediaID'
 
 const defaultConfig = {
 	location: apiLocation.USA,
@@ -70,12 +68,9 @@ export default function createClient(userConfig) {
     //the function that actually makes ALL our requests
     function makeRequest(reqConfig) {
 
-console.log("MAKE REQUEST", reqConfig)
-
         if (reqConfig.debug) {
             logDebug(`AgilityCMS MGMT API LOG: ${reqConfig.baseURL}${reqConfig.url}`);
 		}
-
 
 		let promise = new Promise(function(resolve, reject) {
 
@@ -100,34 +95,29 @@ console.log("MAKE REQUEST", reqConfig)
 			.catch((error) => {
 
 				logError(`AgilityCMS MGMT API ERROR: Request failed for ${reqConfig.baseURL}${reqConfig.url} ... ${error}`)
-				reject("The Management API request failed.")
+				reject(new Error("The Management API request failed."))
 			});
 
 		});
 
-
 		return promise;
-
-
-        // //make the request using our axios instance
-        // return api(reqConfig).then(async (response) => {
-
-		// 	let data = response.data;
-		// 	//TODO: do any post processing on the response that we might need here...
-
-        //     return data;
-        // })
-		// .catch(async (error) => {
-
-		// 	logError(`AgilityCMS MGMT API ERROR: Request failed for ${reqConfig.baseURL}${reqConfig.url} ... ${error} ... Does the item exist?`)
-		// });
     }
 
     //export only these properties:
     return {
-        config: config,
-        makeRequest: makeRequest,
-		saveContentItem: saveContentItem
+        config,
+        makeRequest,
+
+		saveContentItem,
+		requestApproval,
+		approveContent,
+		declineContent,
+		deleteContent,
+		publishContent,
+		unpublishContent,
+
+		uploadMedia,
+		getMediaID
     }
 
 }
