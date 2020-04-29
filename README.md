@@ -1,4 +1,4 @@
-# Agility Management JS SDK
+# Agility Content Management JS SDK
 This is the official JavaScript library for inserting, updating, managing and importing content, pages and media in your [Agility CMS](https://agilitycms.com) instance.
 
 Don't have an Agility CMS instance? Sign up for [Free (forever)](https://account.agilitycms.com/sign-up?product=agility-free) today!
@@ -7,7 +7,7 @@ Don't have an Agility CMS instance? Sign up for [Free (forever)](https://account
 - Programmatically be able to manage content via JavaScript API client
 
 ## Getting Started
-In order to use Agilitiy Management JS SDK you'll need to first clone the github repo.
+In order to use Agilitiy Content Management JS SDK you'll need to first clone the github repo.
 
 ### Dependencies
 - Have node.js installed https://nodejs.org/en/download/
