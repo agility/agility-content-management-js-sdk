@@ -6,13 +6,35 @@ import { buildAPIUrl, buildAuthHeader } from '../../utils'
  * @param {Object} requestParams - The paramaters for the API request.
  * @param {string} requestParams.path - The file path of the item.
 
- * @returns {Promise<number>} - Returns the media.
+ * @returns {Promise<AgilityManagement.Types.MediaReturn>} - Returns the media.
  * @example
  *
- * //TODO: add code example...
+ * import agilityMgmt from '@agility/content-management'
  *
+ * #Create a new instance API client
+ * const api = agilityMgmt.getApi({
+ *   location: 'MyLocation',
+ *   websiteName: 'MyWebsiteName',
+ *   securityKey: 'MySecurityKey'
+ * });
+ * 
+ * 
+ * #Set the path to the media
+ * #Important: The path is the file name in Agility Media you need to access
+ * let path = "test.png"
+ * 
+ * api.getMediaID({
+ *  path
+ * })
+ * .then(function(mediaObj) {
+ *  #check if media is not null/empty and has valid url for success
+ * })
+ * .catch(function(error) {
+ *  #handle error
+ * });
+ * 
 */
-function requestApproval(requestParams) {
+function getMediaID(requestParams) {
 
 	validateRequestParams(requestParams);
 
@@ -42,4 +64,4 @@ function validateRequestParams(requestParams) {
 }
 
 
-export default requestApproval;
+export default getMediaID;

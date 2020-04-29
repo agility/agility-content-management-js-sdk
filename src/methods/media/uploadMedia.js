@@ -5,16 +5,40 @@ import { buildAPIUrl, buildAuthHeader } from '../../utils'
  * Uploads a file to the media repository.
  * @memberof AgilityManagement.Client.Media
  * @param {Object} requestParams - The paramaters for the API request.
- * @param {object} requestParams.fileContent - The contents of the file.
  * @param {string} requestParams.fileName - The name of the file.
+ * @param {object} requestParams.fileContent - The contents of the file.
  * @param {string} [requestParams.mediaFolder] - (Optional) The folder to upload the file to.
  *
- * @returns {Promise<AgilityManagement.Types.MediaReturn>} - Returns the mediaID.
+ * @returns {Promise<AgilityManagement.Types.MediaReturn>} - Returns the mediaObj.
  * @example
  *
- * //TODO: add code example...
+ * import agilityMgmt from '@agility/content-management'
+ *
+ * #Create a new instance API client
+ * const api = agilityMgmt.getApi({
+ *   location: 'MyLocation',
+ *   websiteName: 'MyWebsiteName',
+ *   securityKey: 'MySecurityKey'
+ * });
+ * 
+ * 
+ * #Create media stream, save blob variable and set filename
+ * let blob = fs.createReadStream('./test/sample/logo.png')
+ * let filename = `test-${new Date().toISOString().replace(/\./g, "").replace(/:/g, "")}.png`;
+ * 
+ * api.uploadMedia({
+ *  fileName: filename,
+ *  fileContent: blob
+ * })
+ * .then(function(mediaObj) {
+ *  #check if media is not null/empty and has valid url for success
+ * })
+ * .catch(function(error) {
+ *  #handle error
+ * });
  *
 */
+
 function uploadMedia(requestParams) {
 
 	validateRequestParams(requestParams);
