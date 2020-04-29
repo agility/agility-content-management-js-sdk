@@ -1,8 +1,6 @@
 # Agility Content Fetch JS SDK
 This is the official JavaScript library for inserting, updating, managing and importing content, pages and media in your [Agility CMS](https://agilitycms.com) instance.
 
-This SDK is intended to be used node.js app only.
-
 Don't have an Agility CMS instance? Sign up for [Free (forever)](https://account.agilitycms.com/sign-up?product=agility-free) today!
 
 ## Features
@@ -11,8 +9,11 @@ TBD
 ## Getting Started
 TBD
 
+### Dependencies
+- This SDK is intended to be used node.js
+
 ### Prerequisites
-TBD
+- You must have access to an Agility instance to retrieve the *guid* and generate your *apiKey*. Or, you must have these values provided to you by reaching out to support@agilitycms.com
 
 ### Installation
 TBD
