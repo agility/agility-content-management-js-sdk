@@ -12,9 +12,50 @@ import { buildAPIUrl, buildAuthHeader } from '../../utils'
  * @returns {Promise<number>} - Returns the contentID.
  * @example
  *
- * //TODO: add code example...
+ * import agilityMgmt from '@agility/content-management'
  *
+ * #Create a new instance API client
+ * const api = agilityMgmt.getApi({
+ *   location: 'MyLocation',
+ *   websiteName: 'MyWebsiteName',
+ *   securityKey: 'MySecurityKey'
+ * });
+ * 
+ * #Set the contentItem structure
+ * #Important: The fields are not camel case - make sure the field names match EXACTLY with your content definition in Agility instance
+ * #The example below shows how to structure your fields with simple types and nested objects
+ * let contentItem = {
+ *  contentID: -1,
+ *  fields: {
+ *   "Title": "Test Title",
+ *   "Image": {
+ *    "mediaID": 123,
+ *    "label": "Test Image"
+ *   }
+ *  }
+ * }
+ * 
+ * #Set language code and reference name of content you want to save
+ * let languageCode = "en-us";
+ * let referenceName = "MyReferenceName";
+ * 
+ * api.saveContentItem({
+ *  contentItem,
+ *  languageCode,
+ *  referenceName
+ * })
+ * .then(function(contentID) {
+ *  #check contentID is greater > 0 for success
+ *  #update contentID of saved item
+ *  contentIDToWorkOn = contentID;
+ * })
+ * .catch(function(error) {
+ *  #handle error
+ * });
+ * 
+ * 
 */
+
 function saveContentItem(requestParams) {
 
 	validateRequestParams(requestParams);

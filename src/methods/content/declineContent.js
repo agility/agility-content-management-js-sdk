@@ -4,13 +4,34 @@ import { buildAPIUrl, buildAuthHeader } from '../../utils'
  * Decline a given content item.
  * @memberof AgilityManagement.Client.Content
  * @param {Object} requestParams - The paramaters for the API request.
- * @param {string} requestParams.languageCode - The language code of the content you want to approve.
  * @param {number} requestParams.contentID - The contentID of the item to approve.
-
+ * @param {string} requestParams.languageCode - The language code of the content you want to approve.
  * @returns {Promise<number>} - Returns the contentID.
  * @example
  *
- * //TODO: add code example...
+ * import agilityMgmt from '@agility/content-management'
+ *
+ * #Create a new instance API client
+ * const api = agilityMgmt.getApi({
+ *   location: 'MyLocation',
+ *   websiteName: 'MyWebsiteName',
+ *   securityKey: 'MySecurityKey'
+ * });
+ * 
+ * #Set the contentID and language code of content you want to decline
+ * let contentID = contentIDToWorkOn;
+ * let languageCode = "en-us";
+ * 
+ * api.declineContent({
+ *  contentID,
+ *  languageCode
+ * })
+ * .then(function(contentID) {
+ *  #check contentID is greater > 0 for success
+ * })
+ * .catch(function(error) {
+ *  #handle error
+ * });
  *
 */
 function declineContent(requestParams) {

@@ -29,7 +29,9 @@ In order to use Agilitiy Content Management JS SDK you'll need to first clone th
 ```
 
 ## Documentation
-TBD
+Full documentation for this SDK can be found in our <i>Agility Content Management JS SDK Reference Doc TBD</i>.
+
+For docs & help around Agility CMS, please see [Agility CMS Documentation](https://help.agilitycms.com/hc/en-us)
 
 ## Tutorials
 TBD

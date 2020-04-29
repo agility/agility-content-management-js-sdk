@@ -129,6 +129,7 @@ describe('contentItem Operations:', function () {
 
 	//APPROVE
 	it('should approve a content item ', (done) => {
+		
 		let api = createApiClientDev();
 
 		assert.strictEqual(typeof (api), "object", "The api object should be an object type.");
@@ -140,11 +141,11 @@ describe('contentItem Operations:', function () {
 			contentID,
 			languageCode
 		})
-			.then(function (contentID) {
-				assert.isTrue(contentID > 0, "the contentID that was returned was not greater than 0");
-				done();
-			})
-			.catch(done);
+		.then(function (contentID) {
+			assert.isTrue(contentID > 0, "the contentID that was returned was not greater than 0");
+			done();
+		})
+		.catch(done);
 	})
 
 	//PUBLISH
