@@ -37,6 +37,7 @@
 	"dependencies": {
 		"axios": "^0.18.1",
 		"axios-cache-adapter": "^2.4.1",
+		"dotenv": "^8.2.0",
 		"form-data": "^3.0.0"
 	}
 }

@@ -1,8 +1,8 @@
 import agility from '../src/content-management'
+require('dotenv').config();
 
-// Agility Instance = 'Headless Integration Testing' [Dev]
-const websiteName = "Headless Integration Testing";
-const securityKey = 'SABlAGEAZABsAGUAcwBzACAASQBuAHQAZQBnAHIAYQB0AGkAbwBuACAAVABlAHMAdABpAG4AZwAtAEEANwA5ADUANAAxAEMANQAtAEUAQgAzADIALQA0ADYAMwBCAC0AQgBBADYANgAtADkARQBDAEMANwBCADYAOAA3ADYANQBFAA==';
+const websiteName = process.env.WEBSITE_NAME;
+const securityKey = process.env.SECURITY_KEY;
 
 function createApiClientUSA() {
     var api = agility.getApi({
