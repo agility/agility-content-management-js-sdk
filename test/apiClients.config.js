@@ -25,11 +25,10 @@ function createApiClientCanada() {
 
 function createApiClientDev() {
     var api = agility.getApi({
-		websiteName: websiteName,
-		securityKey: securityKey,
-		baseURL: "https://dev-contentserver.publishwithagility.com",
-		//baseURL: "http://contentserver.dev.edentity.ca",
-		debug: true
+      websiteName: websiteName,
+      securityKey: securityKey,
+      baseURL: process.env.BASE_URL,
+      debug: true
     });
     return api;
 }
