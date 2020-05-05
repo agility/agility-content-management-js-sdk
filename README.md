@@ -18,14 +18,9 @@ In order to use Agilitiy Content Management JS SDK you'll need to first clone th
 - Agility Content Management SDKis intended to be used with node.js
 
 ### Installation
+Install it using **npm** (recommended):
 ```
-> git clone https://github.com/agility/agility-content-management-js-sdk.git
-> cd agility-content-management-js-sdk
-# Restore npm packagees
-> npm install
-# Build the file to generate dist
-> npm run build
-
+npm install @agility/content-management
 ```
 
 ## Documentation
