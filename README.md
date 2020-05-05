@@ -23,8 +23,6 @@ Install it using **npm** (recommended):
 ```
 npm install @agility/content-management
 ```
-### Note
-- Agility Content Management SDK's intended to be used with node.js
 
 ## Making a Request
 ### Create an instance of API client for Agility Content Management REST API
