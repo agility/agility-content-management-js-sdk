@@ -6,9 +6,9 @@ Don't have an Agility CMS instance? Sign up for [Free (forever)](https://account
 ## Features
 Programmatically manage content via JavaScript API client
 
-### Agility Instance Management
+#### Agility Instance Management
 - Get API
-### Content Management
+#### Content Management
 - Approve Content
 - Decline Content
 - Delete Content
@@ -17,7 +17,7 @@ Programmatically manage content via JavaScript API client
 - Save Content Item
 - Unpublish Content
 
-### Media Management
+#### Media Management
 - Get Media
 - Upload Media
 
@@ -35,7 +35,7 @@ npm install @agility/content-management
 ```
 
 ## Making a Request
-### Create an instance of API client for Agility Content Management REST API
+#### Create an instance of API client for Agility Content Management REST API
 ```
 import agilityMgmt from '@agility/content-management'
 
@@ -46,7 +46,23 @@ const mgmtApi = agilityMgmt.getApi({
 });
 
 ```
+#### Approve Content
+```
+#Set the contentID and language code of content you want to approve
+let contentID = contentIDToWorkOn;
+let languageCode = "en-us";
 
+api.approveContent({
+ contentID,
+ languageCode
+})
+.then(function(contentID) {
+ #check contentID is greater > 0 for success
+})
+.catch(function(error) {
+ #handle error
+});
+```
 
 
 ## Documentation
