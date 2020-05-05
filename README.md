@@ -4,7 +4,22 @@ This is the official JavaScript library for inserting, updating, managing and im
 Don't have an Agility CMS instance? Sign up for [Free (forever)](https://account.agilitycms.com/sign-up?product=agility-free) today!
 
 ## Features
-- Programmatically be able to manage content via JavaScript API client
+Programmatically manage content via JavaScript API client
+
+### Agility Instance Management
+- Get API
+### Content Management
+- Approve Content
+- Decline Content
+- Delete Content
+- Publish Content
+- Request Approval
+- Save Content Item
+- Unpublish Content
+
+### Media Management
+- Get Media
+- Upload Media
 
 ## Getting Started
 In order to use Agilitiy Content Management JS SDK you'll need to first clone the github repo.
@@ -20,6 +35,17 @@ npm install @agility/content-management
 ```
 
 ## Making a Request
+### Create an instance of API client for Agility Content Management REST API
+```
+import agilityMgmt from '@agility/content-management'
+
+const mgmtApi = agilityMgmt.getApi({
+  location: 'USA',
+  websiteName: 'MyWebsiteName',
+  securityKey: 'xyz123'
+});
+
+```
 
 
 
