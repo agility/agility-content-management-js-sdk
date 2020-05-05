@@ -18,17 +18,13 @@ Programmatically manage content via JavaScript API client
 || Unpublish Content ||
 
 ## Getting Started
-In order to use Agilitiy Content Management JS SDK you'll need to first clone the github repo.
-
-### Prerequisites
-- You must have access to an Agility instance to retrieve the *guid* and generate your *apiKey*. Or, you must have these values provided to you by reaching out to support@agilitycms.com
-- Agility Content Management SDKis intended to be used with node.js
-
 ### Installation
 Install it using **npm** (recommended):
 ```
 npm install @agility/content-management
 ```
+### Note
+- Agility Content Management SDK's intended to be used with node.js
 
 ## Making a Request
 ### Create an instance of API client for Agility Content Management REST API
