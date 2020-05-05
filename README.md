@@ -9,10 +9,6 @@ Don't have an Agility CMS instance? Sign up for [Free (forever)](https://account
 ## Getting Started
 In order to use Agilitiy Content Management JS SDK you'll need to first clone the github repo.
 
-### Dependencies
-- Have node.js installed https://nodejs.org/en/download/
-- Have NPM installed https://www.npmjs.com/get-npm 
-
 ### Prerequisites
 - You must have access to an Agility instance to retrieve the *guid* and generate your *apiKey*. Or, you must have these values provided to you by reaching out to support@agilitycms.com
 - Agility Content Management SDKis intended to be used with node.js
@@ -23,26 +19,14 @@ Install it using **npm** (recommended):
 npm install @agility/content-management
 ```
 
+## Making a Request
+
+
+
 ## Documentation
-Full documentation for this SDK can be found in our <i>Agility Content Management JS SDK Reference Doc TBD</i>.
+Full documentation for this SDK can be found in our [Agility Management JS SDK Reference Doc](https://agilitydocs.netlify.app/agility-content-management-js-sdk/0.1.0/).
 
 For docs & help around Agility CMS, please see [Agility CMS Documentation](https://help.agilitycms.com/hc/en-us)
-
-## Tutorials
-[Retrieving your API Key(s), Guid, and API URL](https://help.agilitycms.com/hc/en-us/articles/360031919212-Retrieving-your-API-Key-s-Guid-and-API-URL-)
-
-[Page Management in a Headless CMS](https://help.agilitycms.com/hc/en-us/articles/360032554331-Page-Management-in-a-Headless-CMS)
-
-[Using Agility CMS with Create React App](https://help.agilitycms.com/hc/en-us/articles/360031121692-Using-Agility-CMS-with-Create-React-App-CRA-)
-
-[Creating a Module for the Agility CMS Create React App](https://help.agilitycms.com/hc/en-us/articles/360031590791-Creating-a-Module-for-the-Agility-CMS-Create-React-App)
-
-[Creating a Page Template for the Agility CMS Create React App](https://help.agilitycms.com/hc/en-us/articles/360032611011-Creating-a-Page-Template-for-the-Agility-CMS-Create-React-App)
-
-[Deploying your Agility CMS Create React App](https://help.agilitycms.com/hc/en-us/articles/360032203552-Deploying-your-Agility-CMS-Create-React-App)
-
-[Content Webhooks](https://help.agilitycms.com/hc/en-us/articles/360035934911)
-
 
 ## Contributing
 If you would like to contribute to this SDK, you can fork the repository and submit a pull request. We'd love to include your updates.
