@@ -6,20 +6,16 @@ Don't have an Agility CMS instance? Sign up for [Free (forever)](https://account
 ## Features
 Programmatically manage content via JavaScript API client
 
-#### Agility Instance Management
-- <b>Get API</b>
-#### Content Management
-- <b>Approve Content</b>
-- <b>Decline Content</b>
-- <b>Delete Content</b>
-- <b>Publish Content</b>
-- <b>Request Approval</b>
-- <b>Save Content Item</b>
-- <b>Unpublish Content</b>
-
-#### Media Management
-- <b>Get Media</b>
-- <b>Upload Media</b>
+| Agility Instance Management  | Content Management | Media Management |
+| ------------- | ------------- | ------------- |
+| Get API  | Approve Content | Get Media |
+|| Approve Content ||
+|| Decline Content ||
+|| Delete Content ||
+|| Publish Content ||
+|| Request Approval ||
+|| Save Content Item ||
+|| Unpublish Content ||
 
 ## Getting Started
 In order to use Agilitiy Content Management JS SDK you'll need to first clone the github repo.
