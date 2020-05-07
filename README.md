@@ -40,7 +40,7 @@ const mgmtApi = agilityMgmt.getApi({
 ### Content Management
 #### Approve Content
 ```javascript
-#Set the contentID and language code of content you want to approve
+//Set the contentID and language code of content you want to approve
 let contentID = contentIDToWorkOn;
 let languageCode = "en-us";
 
@@ -49,15 +49,15 @@ api.approveContent({
  languageCode
 })
 .then(function(contentID) {
- #check contentID is greater > 0 for success
+ //check contentID is greater > 0 for success
 })
 .catch(function(error) {
- #handle error
+ //handle error
 });
 ```
 #### Decline Content
 ```javascript
-#Set the contentID and language code of content you want to decline
+//Set the contentID and language code of content you want to decline
 let contentID = contentIDToWorkOn;
 let languageCode = "en-us";
 
@@ -66,15 +66,15 @@ api.declineContent({
  languageCode
 })
 .then(function(contentID) {
- #check contentID is greater > 0 for success
+ //check contentID is greater > 0 for success
 })
 .catch(function(error) {
- #handle error
+ //handle error
 });
 ```
 #### Delete Content
 ```javascript
-#Set the contentID and language code of content you want to delete
+//Set the contentID and language code of content you want to delete
 let contentID = contentIDToWorkOn;
 let languageCode = "en-us";
 
@@ -83,16 +83,16 @@ api.deleteContent({
  languageCode
 })
 .then(function(contentID) {
- #check contentID is greater > 0 for success
+ //check contentID is greater > 0 for success
 })
 .catch(function(error) {
- #handle error
+ //handle error
 });
 ```
 
 #### Publish Content
 ```javascript
-#Set the contentID and language code of content you want to publish
+//Set the contentID and language code of content you want to publish
 let contentID = contentIDToWorkOn;
 let languageCode = "en-us";
 
@@ -101,16 +101,16 @@ api.publishContent({
  languageCode
 })
 .then(function(contentID) {
- #check contentID is greater > 0 for success
+ //check contentID is greater > 0 for success
 })
 .catch(function(error) {
- #handle error
+ //handle error
 });
 ```
 
 #### Request Approval
 ```javascript
-#Set the contentID and language code of content you want to request for approval
+//Set the contentID and language code of content you want to request for approval
 let contentID = contentIDToWorkOn;
 let languageCode = "en-us";
 
@@ -119,18 +119,18 @@ api.requestApproval({
  languageCode
 })
 .then(function(contentID) {
- #check contentID is greater > 0 for success
+ //check contentID is greater > 0 for success
 })
 .catch(function(error) {
- #handle error
+ //handle error
 });
 ```
 
 #### Save Content Item
 ```javascript
-#Set the contentItem structure
-#Important: The fields are not camel case - make sure the field names match EXACTLY with your content definition in Agility instance
-#The example below shows how to structure your fields with simple types and nested objects
+//Set the contentItem structure
+//Important: The fields are not camel case - make sure the field names match EXACTLY with your content definition in Agility instance
+//The example below shows how to structure your fields with simple types and nested objects
 let contentItem = {
  contentID: -1,
  fields: {
@@ -142,7 +142,7 @@ let contentItem = {
  }
 }
 
-#Set language code and reference name of content you want to save
+//Set language code and reference name of content you want to save
 let languageCode = "en-us";
 let referenceName = "MyReferenceName";
 
@@ -152,17 +152,17 @@ api.saveContentItem({
  referenceName
 })
 .then(function(contentID) {
- #check contentID is greater > 0 for success
- #update contentID of saved item
+ //check contentID is greater > 0 for success
+ //update contentID of saved item
  contentIDToWorkOn = contentID;
 })
 .catch(function(error) {
- #handle error
+ //handle error
 });
 ```
 #### Unpublish Content
 ```javascript
-#Set the contentID and language code of content you want to unpublish
+//Set the contentID and language code of content you want to unpublish
 let contentID = contentIDToWorkOn;
 let languageCode = "en-us";
 
@@ -171,33 +171,33 @@ api.unpublishContent({
  languageCode
 })
 .then(function(contentID) {
- #check contentID is greater > 0 for success
+ //check contentID is greater > 0 for success
 })
 .catch(function(error) {
- #handle error
+ //handle error
 });
 ```
 ### Media Management
 #### Get Media
 ```javascript
-#Set the path to the media
-#Important: The path is the file name in Agility Media you need to access
+//Set the path to the media
+//Important: The path is the file name in Agility Media you need to access
 let path = "test.png"
 
 api.getMediaID({
  path
 })
 .then(function(mediaObj) {
- #check if media is not null/empty and has valid url for success
+ //check if media is not null/empty and has valid url for success
 })
 .catch(function(error) {
- #handle error
+ //handle error
 });
 ```
 
 #### Upload Media
 ```javascript
-#Create media stream, save blob variable and set filename
+//Create media stream, save blob variable and set filename
 let blob = fs.createReadStream('./test/sample/logo.png')
 let filename = `test-${new Date().toISOString().replace(/\./g, "").replace(/:/g, "")}.png`;
 
@@ -206,10 +206,10 @@ api.uploadMedia({
  fileContent: blob
 })
 .then(function(mediaObj) {
- #check if media is not null/empty and has valid url for success
+ //check if media is not null/empty and has valid url for success
 })
 .catch(function(error) {
- #handle error
+ //handle error
 });
 ```
 
