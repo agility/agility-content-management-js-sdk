@@ -9,7 +9,7 @@ Programmatically manage content via JavaScript API client
 | Agility Instance Management  | Content Management | Media Management |
 | ------------- | ------------- | ------------- |
 | Get API  | Approve Content | Get Media |
-|| Decline Content ||
+|| Decline Content | Upload Media |
 || Delete Content ||
 || Publish Content ||
 || Request Approval ||
