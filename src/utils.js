@@ -59,8 +59,7 @@ function buildAuthHeader({config, methodName, args}) {
 }
 
 function isHttps(url) {
-	//HACK
-	return true;
+
     if(!url.toLowerCase().startsWith('https://')) {
         return false;
     }
