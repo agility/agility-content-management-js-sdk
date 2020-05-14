@@ -13,6 +13,10 @@ import unpublishContent from './methods/content/unpublishContent'
 import uploadMedia 		from './methods/media/uploadMedia'
 import getMediaID 		from './methods/media/getMediaID'
 
+import saveUrlRedirection from './methods/urlRedirections/saveUrlRedirection'
+import deleteUrlRedirection from './methods/urlRedirections/deleteUrlRedirection'
+import saveUrlRedirectionTest from './methods/urlRedirections/saveUrlRedirectionTest'
+
 const defaultConfig = {
 	location: apiLocation.USA,
 
@@ -60,8 +64,14 @@ export default function createClient(userConfig) {
 	//TODO: determine if we need an adapter for axios...
     let adapter = null;
 
+	//HACK
+	const https = require("https")
+
     //create apply the adapter to our axios instance
     const api = axios.create({
+		httpsAgent: new https.Agent({
+			rejectUnauthorized: false
+		  }),
         adapter: adapter
     })
 
@@ -117,7 +127,12 @@ export default function createClient(userConfig) {
 		unpublishContent,
 
 		uploadMedia,
-		getMediaID
+		getMediaID,
+
+		saveUrlRedirection,
+		deleteUrlRedirection,
+		saveUrlRedirectionTest
+
     }
 
 }
