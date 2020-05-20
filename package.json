@@ -5,7 +5,7 @@
 	"main": "dist/agility-content-management.node.js",
 	"scripts": {
 		"test": "nyc --reporter=html --reporter=text mocha --require @babel/register --recursive ./test/",
-		"test1": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test/03-mediaOps.tests.js",
+		"test1": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test/04-redirectionOps.tests",
 		"generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
 		"build": "webpack --config webpack.config -p"
 	},
