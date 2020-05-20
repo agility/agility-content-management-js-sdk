@@ -1,6 +1,6 @@
 {
 	"name": "@agility/content-management",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "JavaScript library for the Agility Content Management API (node)",
 	"main": "dist/agility-content-management.node.js",
 	"scripts": {

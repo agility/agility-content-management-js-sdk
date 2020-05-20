@@ -40,8 +40,8 @@ function saveUrlRedirectionTest(requestParams) {
 
 	validateRequestParams(requestParams);
 
-	let testStatus = 0; //fail
-	if (requestParams.passed === true) testStatus = 1;
+	let testStatus = 1; //fail
+	if (requestParams.passed === true) testStatus = 2;
 
 	const args = {
 		"urlRedirectionID": requestParams.urlRedirectionID
