@@ -3,7 +3,7 @@ const path = require('path');
 
 const nodeConfig = {
     target: 'node',
-    entry: './src/api-client.js',
+    entry: './src/content-management.js',
     output: {
         filename: 'agility-content-management.node.js',
         path: path.resolve(__dirname, 'dist'),
