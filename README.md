@@ -6,15 +6,15 @@ Don't have an Agility CMS instance? Sign up for [Free (forever)](https://account
 ## Features
 Programmatically manage content via JavaScript API client
 
-| Agility Instance Management  | Content Management | Media Management |
-| ------------- | ------------- | ------------- |
-| Get API  | Approve Content | Get Media |
-|| Decline Content | Upload Media |
-|| Delete Content ||
-|| Publish Content ||
+| Agility Instance Management  | Content Management | Media Management | URL Redirections
+| ------------- | ------------- | ------------- | ------------- |
+| Get API  | Approve Content | Get Media | Delete URL Redirection | 
+|| Decline Content | Upload Media | Save URL Redirection |
+|| Delete Content || Save URL Redirection Test|
+|| Publish Content |||
 || Request Approval ||
-|| Save Content Item ||
-|| Unpublish Content ||
+|| Save Content Item |||
+|| Unpublish Content |||
 
 ## Getting Started
 ### Installation
@@ -211,6 +211,48 @@ api.uploadMedia({
  //handle error
 });
 ```
+
+### URL Redirections
+#### Delete URL Redirection
+```javascript
+api.deleteUrlRedirection({
+ urlRedirectionID: urlRedirectionIDToDelete
+})
+.then(function() {
+	 console.log("deleted");
+})
+.catch(function(error) {
+ //handle error
+});
+```
+#### Save URL Redirection
+```javascript
+api.saveUrlRedirection({
+ originUrl: "/from/link",
+ destinationUrl: "/to/link"
+})
+.then(function(urlRedirectionID) {
+	 console.log("saved ", urlRedirectionID);
+})
+.catch(function(error) {
+ //handle error
+});
+```
+#### Save URL Redirection Test
+```javascript
+api.saveUrlRedirectionTest({
+ urlRedirectionID: urlRedirectionIDtoUpdate,
+ passed: true,
+ testResult: "- 301 to /dest-url"
+})
+.then(function() {
+	 console.log("updated test");
+})
+.catch(function(error) {
+ //handle error
+});
+```
+
 
 ## Documentation
 Full documentation for this SDK can be found in our [Agility Management JS SDK Reference Doc](https://agilitydocs.netlify.app/agility-content-management-js-sdk)
