@@ -24,6 +24,10 @@
 * @namespace AgilityManagement.Client.Media
 */
 
+/**
+* Agility Management API JS SDK for creating URL redirects in Agility CMS
+* @namespace AgilityManagement.Client.UrlRedirections
+*/
 
 
 /**
