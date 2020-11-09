@@ -43,7 +43,7 @@ function buildAuthHeader({config, methodName, args}) {
 		}
 	}
 
-	params = params.sort();
+	params = params.sort(function(a,b){ return a.toString().toLowerCase() > b.toString().toLowerCase()});
 
 	const str = `${websiteName}.${securityKey}.${methodName}.${params.join(".")}.${websiteName}`;
 	const hash = crypto.createHash("sha1").update(str).digest('hex');
