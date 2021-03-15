@@ -5,7 +5,7 @@ import { buildAPIUrl, buildAuthHeader } from '../../utils'
  * @memberof AgilityManagement.Client.WebHooks
  * @param {Object} requestParams - The paramaters for the API request.
 
- * @param {Number} requestParams.url - The url of the WebHook to delete.
+ * @param {String} requestParams.url - The url of the WebHook to delete.
  * @returns {Promise} - No return value.
  *
 */
