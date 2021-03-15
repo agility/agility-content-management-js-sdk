@@ -17,6 +17,9 @@ import saveUrlRedirection from './methods/urlRedirections/saveUrlRedirection'
 import deleteUrlRedirection from './methods/urlRedirections/deleteUrlRedirection'
 import saveUrlRedirectionTest from './methods/urlRedirections/saveUrlRedirectionTest'
 
+import saveWebHook from "./methods/webHooks/saveWebHook"
+import deleteWebHook from "./methods/webHooks/deleteWebHook"
+
 const defaultConfig = {
 	location: apiLocation.USA,
 
@@ -61,19 +64,14 @@ export default function createClient(userConfig) {
 	//add on the api base path
 	config.baseURL += "/Services/API.ashx/";
 
-	//TODO: determine if we need an adapter for axios...
-    let adapter = null;
-
 
     //create apply the adapter to our axios instance
-    const api = axios.create({
-        adapter: adapter
-    })
+    const api = axios.create()
 
     //the function that actually makes ALL our requests
     function makeRequest(reqConfig) {
 
-        if (reqConfig.debug) {
+        if (reqConfig.debug  || api.debug) {
             logDebug(`AgilityCMS MGMT API LOG: ${reqConfig.baseURL}${reqConfig.url}`);
 		}
 
@@ -126,7 +124,10 @@ export default function createClient(userConfig) {
 
 		saveUrlRedirection,
 		deleteUrlRedirection,
-		saveUrlRedirectionTest
+		saveUrlRedirectionTest,
+
+		saveWebHook,
+		deleteWebHook
 
     }
 
