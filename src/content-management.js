@@ -29,6 +29,11 @@
 * @namespace AgilityManagement.Client.UrlRedirections
 */
 
+/**
+* Agility Management API JS SDK for managing WebHooks in Agility CMS
+* @namespace AgilityManagement.Client.WebHooks
+*/
+
 
 /**
  * Types returned by the the Management API

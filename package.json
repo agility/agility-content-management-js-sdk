@@ -1,11 +1,11 @@
 {
 	"name": "@agility/content-management",
-	"version": "0.1.9",
+	"version": "0.2.0",
 	"description": "JavaScript library for the Agility Content Management API (node)",
 	"main": "dist/agility-content-management.node.js",
 	"scripts": {
 		"test": "nyc --reporter=html --reporter=text mocha --require @babel/register --recursive ./test/",
-		"test1": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test/04-redirectionOps.tests",
+		"test1": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test/05-webhookOps.tests",
 		"generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
 		"build": "webpack --config webpack.config -p"
 	},
@@ -36,7 +36,6 @@
 	},
 	"dependencies": {
 		"axios": "^0.18.1",
-		"axios-cache-adapter": "^2.4.1",
 		"dotenv": "^8.2.0",
 		"form-data": "^3.0.0"
 	}
