@@ -1,7 +1,7 @@
 import { buildAPIUrl, buildAuthHeader } from '../../utils'
 
 /**
- * Saves a WebHook
+ * Saves a WebHook.
  * @memberof AgilityManagement.Client.WebHooks
  * @param {Object} requestParams - The paramaters for the API request.
 
@@ -12,6 +12,24 @@ import { buildAPIUrl, buildAuthHeader } from '../../utils'
  * @param {boolean} requestParams.workflowEvents - Whether to receive workflow events or not (such as approve, decline, etc).
 
  * @returns {Promise} - No return value.
+ * @example
+ *
+ * 
+ * //Create a new webhook and set what events to receive
+ * const name = `Test Webhook`
+ * const urlToWorkOn = `http://test.url.com`;
+ * 
+ * api.saveWebHook(
+ * { url:urlToWorkOn, name, publishEvents: false, saveEvents: true, workflowEvents: false 
+ * })
+ * .then(function() {
+ * 	//handle success
+ * })
+ * .catch(function(error) {
+ *  //handle error
+ * });
+ *
+ *
 */
 
 function saveWebHook(requestParams) {

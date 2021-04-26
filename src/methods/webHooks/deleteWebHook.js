@@ -1,12 +1,26 @@
 import { buildAPIUrl, buildAuthHeader } from '../../utils'
 
 /**
- * Deletes a WebHook
+ * Deletes a WebHook.
  * @memberof AgilityManagement.Client.WebHooks
  * @param {Object} requestParams - The paramaters for the API request.
 
  * @param {String} requestParams.url - The url of the WebHook to delete.
  * @returns {Promise} - No return value.
+ * @example
+ * 
+ *
+ * //Specify the URL of the webhook to delete
+ * const urlToWorkOn = `http://test.url.com`;
+ *
+ * api.deleteWebHook({ url: urlToWorkOn })
+ * .then(function() {
+ * 	 console.log("deleted");
+ * })
+ * .catch(function(error) {
+ *  //handle error
+ * });
+ *
  *
 */
 
