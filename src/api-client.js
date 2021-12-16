@@ -46,7 +46,9 @@ export default function createClient(userConfig) {
 
 	const defaultAPIURL  = {
 		"USA" : "https://contentserver1503.agilitycms.com",
-		"Canada": "https://contentserver-ca.agilitycms.com"
+		"Canada": "https://contentserver-ca.agilitycms.com",
+		"Europe": "https://contentserver-eu.agilitycms.com",
+		"DEV": "https://dev-contentserver.publishwithagility.com"
 	}
 
 
@@ -56,6 +58,10 @@ export default function createClient(userConfig) {
 		//use default url based on the location
 		if (config.location === apiLocation.Canada) {
 			config.baseURL = defaultAPIURL.Canada
+		} else if (config.location === apiLocation.Europe) {
+			config.baseURL = defaultAPIURL.Europe
+		} else if (config.location === apiLocation.DEV) {
+			config.baseURL = defaultAPIURL.DEV
 		} else {
 			config.baseURL = defaultAPIURL.USA
 		}

@@ -1,4 +1,6 @@
 export default {
 	Canada: "Canada",
-	USA: "USA"
+	USA: "USA",
+	Europe: "Europe",
+	DEV: 'DEV'
 }
