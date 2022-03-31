@@ -9,9 +9,10 @@ import declineContent 	from './methods/content/declineContent'
 import deleteContent 	from './methods/content/deleteContent'
 import publishContent 	from './methods/content/publishContent'
 import unpublishContent from './methods/content/unpublishContent'
+import getContentItem from './methods/content/getContentItem'
 
 import uploadMedia 		from './methods/media/uploadMedia'
-import getMediaID 		from './methods/media/getMediaID'
+import getMediaID from './methods/media/getMediaID'
 
 import saveUrlRedirection from './methods/urlRedirections/saveUrlRedirection'
 import deleteUrlRedirection from './methods/urlRedirections/deleteUrlRedirection'
@@ -116,7 +117,7 @@ export default function createClient(userConfig) {
     return {
         config,
         makeRequest,
-
+		getContentItem,
 		saveContentItem,
 		requestApproval,
 		approveContent,

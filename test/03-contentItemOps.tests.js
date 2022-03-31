@@ -23,6 +23,7 @@ describe('contentItem Operations:', function () {
 
 	let mediaRetObj = null;
 	let path = null;
+	let savedTitleValue = null
 
 	//UPLOAD a file to use for an attachment
 	it('should upload a media file to use for an attachment', (done) => {
@@ -58,6 +59,8 @@ describe('contentItem Operations:', function () {
 
 		assert.strictEqual(typeof (api), "object", "The api object should be an object type.");
 
+		savedTitleValue = `Test item ${new Date().toLocaleString()}`
+
 		let contentItem = {
 			contentID: -1,
 			fields: {
@@ -85,6 +88,29 @@ describe('contentItem Operations:', function () {
 		    done();
 		  })
 		 .catch(done);
+	})
+
+	//GET THE ITEM
+	it('should get the content item that was just saved', (done) => {
+		let api = createApiClientDev();
+
+		assert.strictEqual(typeof (api), "object", "The api object should be an object type.");
+
+		let contentID = contentIDToWorkOn;
+		let languageCode = "en-us";
+
+		api.getContentItem({
+			contentID,
+			languageCode
+		})
+			.then(function (itemWeGot) {
+
+				assert.isNotNull(itemWeGot, "the content item was not returned");
+				assert.isTrue(contentID === itemWeGot.contentID, "the contentID that was returned was not greater than 0");
+				assert.isTrue(savedTitleValue === itemWeGot.fields.Title);
+				done();
+			})
+			.catch(done);
 	})
 
 	//REQUEST APPROVAL
@@ -129,7 +155,7 @@ describe('contentItem Operations:', function () {
 
 	//APPROVE
 	it('should approve a content item ', (done) => {
-		
+
 		let api = createApiClientDev();
 
 		assert.strictEqual(typeof (api), "object", "The api object should be an object type.");

@@ -1,11 +1,11 @@
 {
 	"name": "@agility/content-management",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "JavaScript library for the Agility Content Management API (node)",
 	"main": "dist/agility-content-management.node.js",
 	"scripts": {
 		"test": "nyc --reporter=html --reporter=text mocha --require @babel/register --recursive ./test/",
-		"test1": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test/05-webhookOps.tests",
+		"test1": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test/03-contentItemOps.tests.js",
 		"generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
 		"build": "webpack --config webpack.config -p"
 	},

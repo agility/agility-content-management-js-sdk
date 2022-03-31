@@ -17,6 +17,7 @@ Programmatically manage content via JavaScript API client
 |                             | Request Approval   |                  |                           |                |
 |                             | Save Content Item  |                  |                           |                |
 |                             | Unpublish Content  |                  |                           |                |
+|                             | Get Content Item   |                  |                           |                |
 
 ## Getting Started
 
@@ -45,6 +46,26 @@ const mgmtApi = agilityMgmt.getApi({
 ```
 
 ### Content Management
+
+#### Get Content Item
+
+```javascript
+//Set the contentID and language code of content you want to approve
+let contentID = contentIDToWorkOn;
+let languageCode = "en-us";
+
+api
+  .getContentItem({
+    contentID,
+    languageCode,
+  })
+  .then(function (item) {
+    //the item is your content item
+  })
+  .catch(function (error) {
+    //handle error
+  });
+```
 
 #### Approve Content
 
