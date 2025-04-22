@@ -1,3 +1,16 @@
+🚨 Deprecation Notice
+
+This package has been deprecated and is no longer maintained.
+
+Please use our new SDK instead:
+👉 [`@agility/management-sdk`](https://www.npmjs.com/package/@agility/management-sdk)
+
+
+The @agility/content-management package has been replaced with a more powerful and fully supported SDK. Future updates, bug fixes, and enhancements will only be made to @agility/management-sdk.
+
+If you are currently using this package, we strongly recommend migrating as soon as possible.
+---
+
 # Agility Content Management JS SDK
 
 This is the official JavaScript library for inserting, updating, managing and importing content, pages and media in your [Agility CMS](https://agilitycms.com) instance.
